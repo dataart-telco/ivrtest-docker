@@ -1,0 +1,7 @@
+server {
+        listen 7080;
+        root /opt/ivrtest/resources;
+        location /{
+		default_type audio/x-wav;
+        }
+}

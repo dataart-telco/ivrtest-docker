@@ -1,0 +1,23 @@
+INFO:	2016/02/29 17:11:22 ivr.go:185: Started with {"Host":"","Port":0,"Res":{"Msg":"http://192.168.176.186:7080/audio/demo-prompt-one-minute.wav","Confirm":"http://192.168.176.186:7080/pcap/demo-prompt.wav"},"Urls":{"Gather":"http://192.168.176.186:7090/gather","Incoming":"http://192.168.176.186:7090/incoming"},"Number":"","RestcommApi":{"Server":"","User":"","Pass":""},"Stat":{"Incoming":0,"Received":0}}
+INFO:	2016/02/29 17:11:22 ivr.go:152: 	Register number: 
+panic: Get http://:@/restcomm/2012-04-24/Accounts//IncomingPhoneNumbers.json: http: no Host in request URL
+
+goroutine 1 [running]:
+github.com/dataart-telco/apps-demo/common.IncomingPhoneNumber.Find(0x0, 0x0, 0x7ffde344d722, 0x0, 0x7ffde344d726, 0x0, 0x7ffde344d72f, 0x0, 0x7ffde344d738, 0x0, ...)
+	/home/juju/go/src/github.com/dataart-telco/apps-demo/common/restcomm-api.go:57 +0x2fa
+github.com/dataart-telco/apps-demo/common.IncomingPhoneNumber.CreateOrUpdate(0x0, 0x0, 0x7ffde344d722, 0x0, 0x7ffde344d726, 0x0, 0x7ffde344d72f, 0x0, 0x7ffde344d738, 0x0, ...)
+	/home/juju/go/src/github.com/dataart-telco/apps-demo/common/restcomm-api.go:107 +0xb7
+main.(*Ivr).RegisterNumber(0xc8200882d0)
+	/home/juju/go/src/ivrtest/ivr.go:153 +0x263
+main.main()
+	/home/juju/go/src/ivrtest/ivr.go:186 +0xeb7
+
+goroutine 17 [syscall, locked to thread]:
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1696 +0x1
+
+goroutine 5 [syscall]:
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:22 +0x18
+created by os/signal.init.1
+	/usr/local/go/src/os/signal/signal_unix.go:28 +0x37
