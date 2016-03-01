@@ -17,4 +17,4 @@ docker run --rm \
     -e RESTCOMM_PSWD=42d8aa7cde9c78c4757862d84620c335 \
     -e PHONE_NUMBER=7777 \
     -v "$PWD/log":/opt/ivrtest/log \
-    -it ivrtest /bin/bash
+    ivrtest
