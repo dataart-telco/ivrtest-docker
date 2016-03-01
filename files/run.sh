@@ -13,9 +13,9 @@ source ./utils/read-network-props.sh "eth0"
     -r "$RESTCOMM_HOST:$RESTCOMM_PORT" \
     -r-user "$RESTCOMM_USER" \
     -r-pswd "$RESTCOMM_PSWD" \
-    -res "" \
-    -res-msg "/restcomm/audio/demo-prompt.wav" \
-    -res-confirm "/restcomm/audio/demo-prompt.wav" \
+    -res "$PRIVATE_IP:7080" \
+    -res-msg "pcap/demo-prompt.wav" \
+    -res-confirm "pcap/demo-prompt.wav" \
     -l TRACE \
     > $PWD/log/ivrtest-server.log \
     2>&1 &
@@ -27,7 +27,7 @@ curl "$URL/start"
 
 ./test-ivr.sh $PRIVATE_IP "$RESTCOMM_HOST:5080" $PHONE_NUMBER
 
-sleep 10
+sleep 5
 
 echo "Server stat:"
 curl "$URL/"
