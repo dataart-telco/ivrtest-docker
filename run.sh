@@ -1,5 +1,17 @@
 #!/bin/bash
 
+echo "
+***************
+**
+**   You can specify sipp params:
+**
+**   TEST_CALLS_RATE - calls rate
+**   TEST_CALLS_MAX  - count of calls
+**   TEST_CALLS_CONC - concurrent calls 
+**
+**************
+"
+
 mkdir -p log
 rm log/ivrtest-server.log
 
@@ -18,3 +30,8 @@ docker run --rm \
     -e PHONE_NUMBER=7777 \
     -v "$PWD/log":/opt/ivrtest/log \
     ivrtest
+
+#    -e TEST_CALLS_RATE=5 \
+#    -e TEST_CALLS_MAX=100 \
+#    -e TEST_CALLS_CONC=20 \
+
