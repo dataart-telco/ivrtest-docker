@@ -1,4 +1,4 @@
-FROM sipp:latest
+FROM hamsterksu/sipp:latest
 MAINTAINER = Gennadiy Dubina <gdubina@dataart.com>
 
 RUN sudo apt-get update
@@ -11,6 +11,7 @@ RUN sudo apt-get install -y vim
 
 ADD conf/ivr-nginx /etc/nginx/sites-available/ivr
 RUN ln -s /etc/nginx/sites-available/ivr /etc/nginx/sites-enabled/ivr
+RUN rm /etc/nginx/sites-available/default
 
 #test app
 ENV WORK_DIR /opt/ivrtest
