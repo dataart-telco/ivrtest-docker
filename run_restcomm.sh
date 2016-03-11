@@ -11,4 +11,4 @@ docker run --net host -d --name=restcomm \
     -e MEDIASERVER_LOWEST_PORT=64000 \
     -e MEDIASERVER_HIGHEST_PORT=65500 \
     -e PROD_MODE=true \
-    hamsterksu/restcomm:7.6.0.824
+    hamsterksu/restcomm:7.6.0.831
