@@ -2,4 +2,3 @@
 
 docker build -t ivrtest .
 
-./run.sh

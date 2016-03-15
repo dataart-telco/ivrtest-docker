@@ -36,7 +36,7 @@ echo "Start ivr-server"
     -r-user "$RESTCOMM_USER" \
     -r-pswd "$RESTCOMM_PSWD" \
     -res "$PRIVATE_IP:7080" \
-    -res-msg "pcap/demo-prompt.wav" \
+    -res-msg "audio/demo-prompt-30-sec.wav" \
     -res-confirm "pcap/demo-prompt.wav" \
     -l TRACE \
     > $PWD/log/ivrtest-server.log \

@@ -57,7 +57,7 @@ Content-Length: 0
 </send>
 
 <!-- wait for audio message -->
-<pause milliseconds="4000"/>
+<pause milliseconds="30000"/>
 
 <!-- Simulate making a choose -->
 <nop>
