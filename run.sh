@@ -39,8 +39,9 @@ docker run --rm \
     -e RESTCOMM_PSWD=42d8aa7cde9c78c4757862d84620c335 \
     -e PHONE_NUMBER=7777 \
     -e TEST_CALLS_RATE=40 \
-    -e TEST_CALLS_CONC=200 \
-    -e TEST_CALLS_MAX=5000 \
+    -e TEST_CALLS_CONC=400 \
+    -e TEST_CALLS_MAX=100 \
+    -e TEST_SIP_PROXY_PORT=5060 \
     -v "$PWD/log":/opt/ivrtest/log \
     -v "$PWD/result":/opt/ivrtest/result \
     ivrtest

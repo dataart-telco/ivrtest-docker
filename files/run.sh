@@ -18,6 +18,10 @@ if [ -z "$TEST_CALLS_RATE" ]; then
     TEST_CALLS_RATE=80
 fi
 
+if [ -z "$TEST_SIP_PROXY_PORT" ]; then
+    TEST_SIP_PROXY_PORT=5080
+fi
+
 echo "**********************"
 echo "** Start ivr-test with params: "
 echo "** TEST_CALLS_RATE: $TEST_CALLS_RATE"
@@ -36,9 +40,10 @@ echo "Start ivr-server"
     -r-user "$RESTCOMM_USER" \
     -r-pswd "$RESTCOMM_PSWD" \
     -res "$PRIVATE_IP:7080" \
-    -res-msg "pcap/demo-prompt.wav" \
+    -res-msg "audio/demo-prompt-30-sec.wav" \
     -res-confirm "pcap/demo-prompt.wav" \
     -l TRACE \
+    -ignore=true \
     > $PWD/log/ivrtest-server.log \
     2>&1 &
 
@@ -48,7 +53,7 @@ sleep 3
 URL="http://$PRIVATE_IP:$PORT"
 curl -s "$URL/start"
 
-./test-ivr.sh $PRIVATE_IP "$RESTCOMM_HOST:5080" $PHONE_NUMBER
+./test-ivr.sh $PRIVATE_IP "$RESTCOMM_HOST:$TEST_SIP_PROXY_PORT" $PHONE_NUMBER
 
 echo "Wait 7 sec before close"
 sleep 7
